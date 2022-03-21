@@ -6,6 +6,7 @@
     --primary-color: black;
     --secondary-color: #f0f0f0;
     --tertiary-color: yellow;
+    --panel-bg: antiquewhite;
 
     --primary-text-color: black;
     --secondary-text-color: #f0f0f0;
@@ -64,17 +65,46 @@ header li a:hover{
 }
 
 /* Cuerpo de la pagina */
-main{    
+main {
+    line-height: 2em;    
     padding: 1em;
-    line-height: 2em;
-    height: 100vh;    
+}
+
+/* Cremos un contenedor para el grid de 4 paneles */
+.row{    
+    display: grid;
+    grid-template-columns: 1fr 1fr; 
+    grid-gap: 1em;
+    grid-gap: 10px;
+    width: 100%;
+}
+
+/* Establecemos los tamaños de los 4 paneles */
+.one {
+    grid-column: 1 / 2;
+    grid-row: 1 / 2;
+}
+
+.two {
+    grid-column: 2 / 2;
+    grid-row: 1 / 2;
+}
+
+.three {
+    grid-column: 1 / 2;
+    grid-row: 2 / 2;
+}
+
+.four {
+    grid-column: 2 / 2;
+    grid-row: 2/ 2;
 }
 
 /* Footer */
 footer{
     display: flex;
     justify-content: center;
-    position: sticky;
+    position: fixed;
     background-color: var(--primary-color);
     color: var(--primary-text-color);
     padding: 1em;
@@ -104,7 +134,7 @@ footer ul {
 .list_of_me{
     padding: 1em;
     box-sizing: border-box;
-    background-color: antiquewhite;
+    background-color: var(--panel-bg);
     border-radius: 1em;
 }
 
@@ -112,7 +142,7 @@ footer ul {
 .contacto{
     padding: 1em;
     box-sizing: border-box;
-    background-color: antiquewhite;
+    background-color: var(--panel-bg);
     border-radius: 1em;
 }
 
@@ -144,4 +174,19 @@ footer ul {
 .contacto input[type="submit"]:hover{
     background-color: var(--secondary-color);
     color: var(--primary-text-color);
+}
+
+.container{    
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+@media (max-width: 425px){
+    .row{
+        display: block;            
+    }
+
+    .row article{
+        padding-bottom: 1em;
+    }
 }
